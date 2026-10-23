@@ -1,0 +1,26 @@
+description: A high single vs B low single vs C low parallel plus low synthesis
+prompts:
+  - '{{task}}'
+providers:
+  - id: file://provider.py
+    label: A_high_single
+    config:
+      group: A
+  - id: file://provider.py
+    label: B_low_single
+    config:
+      group: B
+  - id: file://provider.py
+    label: C_low_ensemble
+    config:
+      group: C
+tests: file://cases.json
+defaultTest:
+  assert:
+    - type: python
+      value: file://judge.py
+      metric: plan_quality
+# run.py disables cache and limits outer concurrency to one.
+# Each C sample still runs its workers concurrently.
+evaluateOptions:
+  maxConcurrency: 1

@@ -1,0 +1,83 @@
+{
+  "mock": true,
+  "expected_samples": 36,
+  "recorded_samples": 36,
+  "missing_samples": 0,
+  "groups": {
+    "A": {
+      "attempts": 12,
+      "scored": 12,
+      "generation_errors": 0,
+      "judge_errors": 0,
+      "invalid_plans": 0,
+      "mean_score_100": 75.0,
+      "pass_rate_scored": 1,
+      "judge_critical_rate": 0,
+      "generation_cost_usd": 0,
+      "judge_cost_usd": 0,
+      "total_cost_usd": 0,
+      "mean_generation_latency_ms": 20.333333333333332,
+      "mean_generation_cost_usd": 0,
+      "mean_total_cost_usd": 0,
+      "unknown_cost_calls": 0
+    },
+    "B": {
+      "attempts": 12,
+      "scored": 12,
+      "generation_errors": 0,
+      "judge_errors": 0,
+      "invalid_plans": 0,
+      "mean_score_100": 75.0,
+      "pass_rate_scored": 1,
+      "judge_critical_rate": 0,
+      "generation_cost_usd": 0,
+      "judge_cost_usd": 0,
+      "total_cost_usd": 0,
+      "mean_generation_latency_ms": 10.75,
+      "mean_generation_cost_usd": 0,
+      "mean_total_cost_usd": 0,
+      "unknown_cost_calls": 0
+    },
+    "C": {
+      "attempts": 12,
+      "scored": 12,
+      "generation_errors": 0,
+      "judge_errors": 0,
+      "invalid_plans": 0,
+      "mean_score_100": 75.0,
+      "pass_rate_scored": 1,
+      "judge_critical_rate": 0,
+      "generation_cost_usd": 0,
+      "judge_cost_usd": 0,
+      "total_cost_usd": 0,
+      "mean_generation_latency_ms": 58.333333333333336,
+      "mean_generation_cost_usd": 0,
+      "mean_total_cost_usd": 0,
+      "unknown_cost_calls": 0
+    }
+  },
+  "comparisons": {
+    "B-A": {
+      "complete_paired_tasks": 6,
+      "mean_difference": 0.0,
+      "bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "margin": 5,
+      "quality_noninferiority_signal": null
+    },
+    "C-A": {
+      "complete_paired_tasks": 6,
+      "mean_difference": 0.0,
+      "bootstrap_95_ci": [
+        0.0,
+        0.0
+      ],
+      "margin": 5,
+      "quality_noninferiority_signal": null
+    }
+  },
+  "experiment_cost_usd": 0,
+  "unknown_cost_calls": 0
+}

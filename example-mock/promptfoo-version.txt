@@ -1,0 +1,8 @@
+
+========================================================================================================================
+⚠️ The current version of promptfoo 0.124.1 is lower than the latest available version 0.125.0.
+
+Please run npx promptfoo@latest or npm install -g promptfoo@latest to update.
+========================================================================================================================
+
+0.124.1
