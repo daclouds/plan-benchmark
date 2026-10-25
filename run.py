@@ -21,6 +21,7 @@ def main():
     parser.add_argument("--limit", type=int, help="Use only the first N tasks")
     parser.add_argument("--config", type=Path, default=ROOT / "experiment.toml")
     parser.add_argument("--cases", type=Path, default=ROOT / "cases.json")
+    parser.add_argument("--layer", action="append", help="Select a task_layer; repeat to include multiple layers")
     parser.add_argument("--seed", type=int, default=42, help="Order randomization only; not a model sampling seed")
     parser.add_argument("--promptfoo-cli", type=Path, help="Optional installed Promptfoo entrypoint.js; run with node")
     parser.add_argument("--bridge", action="store_true", help="Use localhost Python bridge instead of Node spawning Python")
@@ -41,6 +42,16 @@ def main():
         for key in ("task_id", "task", "eval_reference"):
             if not isinstance(c["vars"].get(key), str) or not c["vars"][key].strip():
                 parser.error(f"Invalid case variable: {key}")
+        layer = c["vars"].get("task_layer", "unclassified")
+        if not isinstance(layer, str) or not layer.strip():
+            parser.error("Invalid case variable: task_layer")
+    if args.layer:
+        available = {c["vars"].get("task_layer", "unclassified") for c in cases}
+        unknown = set(args.layer) - available
+        if unknown:
+            parser.error("Unknown task layers: " + ", ".join(sorted(unknown))
+                         + ". Available: " + ", ".join(sorted(available)))
+        cases = [c for c in cases if c["vars"].get("task_layer", "unclassified") in args.layer]
     cases = cases[:args.limit] if args.limit else cases
     if not args.mock:
         missing = {s["api_key_env"] for s in cfg["models"].values() if not os.environ.get(s["api_key_env"])}
